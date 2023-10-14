@@ -11,7 +11,12 @@ public class GreeterTest {
 
 	@Test
 	public void greeterSaysHello() {
-		assertThat(greeter.sayHello(), containsString("Hello"));
+		assertThat(greeter.sayHello("World"), containsString("Hello"));
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void greeterCalledWithNull() {
+		greeter.sayHello(null);
 	}
 
 }
